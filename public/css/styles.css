@@ -1,0 +1,918 @@
+/* ESTILOS PARA LAS INTERFACES DEL COMITE*/
+.custom-image1 {
+    max-width: 45px;
+    height: auto;
+  }
+
+  .custom-image2 {
+    max-width: 40px;
+    height: auto;
+  }
+
+  .custom-image3 {
+    max-width: 35px;
+    height: auto;
+  }
+
+  .custom-image4 {
+    max-width: 37px;
+    height: auto;
+  }
+
+  .custom-image5 {
+    max-width: 35px;
+    height: auto;
+  }
+
+  .custom-image6 {
+    max-width: 38px;
+    height: auto;
+  }
+
+  .custom-image7 {
+    max-width: 50px;
+    height: auto;
+  }
+
+  .custom-image8 {
+    max-width: 100px;
+    height: auto;
+  }
+
+  .custom-image9 {
+    max-width: 50px;
+    height: auto;
+  }
+
+  .custom-image10 {
+    max-width: 190px;
+    height: auto;
+  }
+
+  .custom-image11 {
+    max-width: 160px;
+    height: auto;
+  }
+
+  .custom-image18 {
+    max-width: 500px;
+    height: auto;
+  }
+
+  .div-superior {
+    margin-bottom: -40px; /* Ajusta el valor según sea necesario */
+  }
+
+  a {
+    text-decoration: none;
+  } 
+
+  textarea{
+    resize: none;
+  }
+/* Hacer cirular un cuadrado de imagen */
+  .circular--square {
+    border-radius: 50%;
+  }
+
+  .flotar {
+    animation-name: flotar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes flotar {
+    0% {
+      transform: translateX(10px) translateY(-10px) rotate(10deg);
+    }
+    25% {
+      transform: translateX(100px) translateY(30px) rotate(5deg);
+    }
+    50% {
+      transform: translateX(10px) translateY(60px) rotate(10deg);
+    }
+    75% {
+      transform: translateX(100px)  translateY(30px) rotate(5deg);
+    }
+    100% {
+      transform: translateX(10px)  translateY(-10px) rotate(10deg);
+    }
+  }
+
+
+  /***********************************************************************************************************************************/
+  /* ESTILOS PARA LAS INTERFACES DE LOGIN Y REGISTRO INCLUYENDO SU BARRA DE NAVEGACION */
+
+/*Fondo */
+.fondo{
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+/* Div base que ocupa toda la pantalla*/
+.base{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Barra de navegacion*/
+.nav_homesite{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px 0px 100px;
+}
+
+/* Links de barra de navegacion*/
+.nav_list{
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+}
+/* Elemento de barra de navegacion*/
+.box_link{
+    display: inline-flex;
+    padding: 0;
+    justify-content: center;
+}
+
+/* Texto de barra de links navegacion*/
+.nav_text{
+    display: inline;
+    color: white;
+    font-weight:500;
+}
+/* Quitar estilo de link por defecto*/
+.nav_link{
+    text-decoration: none;
+    display: inline;
+    color: white;
+}
+/* Interfaz tablet*/
+
+@media screen and (max-width: 992px) {
+    .nav_homesite{
+        padding: 0;
+        flex-wrap:wrap-reverse;
+    }
+    .nav_list{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .nav_text{
+        font-size: 12px;
+        display: inline;
+    }
+}
+
+/* ---------------------------------------------------*/
+
+/* Estilos para login*/
+.main_login{
+    display:flex;
+    height: 80%;
+    width: 70%;
+    background-color: aliceblue;
+}
+/* Texto contenido en la imagen*/
+.login_img_text{
+    color: aliceblue;
+    text-align: center;
+}
+
+.Limg_text_sup{
+    font-size: 35px;
+}
+
+.Limg_text_mid{
+    font-size: 30px;
+}
+
+.Limg_text_bot{
+    font-size: 20px;
+}
+
+/* Div de la parte exclusiva para el login*/
+.div_login{
+    width: 80%;
+    height: 90%;
+}
+
+/* div de input del login, espacios */
+.login_div_input{
+    padding: 30px 0px 30px 0px;
+}
+
+/* Estilo para input de login*/
+.login_title{
+    font-size: 45px;
+    font-weight: 700;
+    color: blueviolet;
+}
+.input_login{
+    
+    border-radius: 10px!important;
+    border-color: blueviolet!important;
+    background-color:rgb(212, 181, 252)!important;
+    height: 50px!important;
+    
+}
+/* Estilo para boton de login*/
+.login_btn{
+    background-color: white;
+    color: blueviolet;
+    font-weight:500;
+    
+    border: 2px solid blueviolet; 
+    border-radius: 10px;
+    width: 40%;
+    
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.5s;
+}
+
+.login_btn:hover{
+    background-color:slateblue; 
+    border: 2px solid white ;
+    color: white;
+}
+
+.texto_enlace{
+    font-size: 15px;
+    text-decoration: none;
+}
+/* ------------------------------------------*/
+.main_login_text{
+    color: white;
+    font-size: 3vw;
+    padding-top: 100px;
+}
+
+.icon_cuenta{
+    font-size: 80px;
+}
+
+.control_tipo{
+    display: flex;
+    height: 250px;
+    width: 200px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .control {  
+        padding-top: 20px;     
+    }
+
+    .control_tipo{
+        height: 150px;
+        width: 100px;
+    }
+
+    .main_login_text{
+
+        padding-top: 20px;
+    }
+}
+
+.double_col{
+    display: inline-flex;
+    width: calc((100% - 30px)/2);
+    flex-direction: column;
+    padding: 10px 0px 10px 0px;
+}
+
+.single_col{
+    display: flex;
+    width: calc(100% - 30px);
+    flex-direction: column;
+    padding: 10px 0px 10px 0px;
+}
+
+.registro_input{
+    outline: none;
+    border:none;
+    border-bottom: 2px solid #000000;
+    background-color: rgba(255, 255, 255, 0.822);;
+}
+
+.box_input{
+    padding: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .nav_homesite{
+        padding: 0;
+        flex-wrap:wrap-reverse;
+    }
+
+    .nav_list{
+        width: 100%;
+    }
+
+    .box_main_img{
+        display: none!important;
+        visibility: hidden!important;
+    }
+
+    .login_title{
+        font-size: 5vw;
+    }    
+}
+
+@media screen and (max-width: 500px) {
+    .nav_homesite{
+        flex-wrap:wrap-reverse;
+    }
+
+    .nav_list{
+        width: 100%;
+    }
+
+    .control {
+        padding-top: 20px;
+    }
+
+    .control_tipo{
+        height: 150px;
+        width: 100px;
+    }
+
+    .main_login_text{
+        padding-top: 20px;
+    }
+    
+    .double_col{
+        width: calc(100% - 30px);
+    }
+}
+
+/***********************************************************************************************************************************/
+  /* ESTILOS PARA RESULTADOS DE ESTUDIANTES, SALA DE ESPERA DE ALUMNO Y LAS PREGUNTAS DEL JUEGO PARA ESTUDIANTES */
+#espera_alumno_fondo{                                                                                                                                                                                                                   
+    background-image: url("../images/stars_space.jpg");    
+    background-size: 100% 100%;
+    background-repeat:repeat;
+    background-position: 50%;
+}
+
+.nav_homesite{
+
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 10px 100px 0px 100px;
+}
+
+.nav_list{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.box_link{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.nav_link{
+    text-decoration: none;
+}
+/* Hacer cirular un cuadrado de imagen */
+.circular--square {
+    border-radius: 50%;
+}
+
+
+/**************************************************************************************************************************************/
+/* ESTILOS PARA LA PAGINA DE CODIGO DE LA SALA DE DOCENTE */
+
+/* Estableciendo diseños para los label de los select */
+.combito label {
+   color: white;
+   font-family: 'Poppins', sans-serif;
+   font-size: 20px;
+   margin-bottom: 5px;
+}
+
+/* Estableciendo color para el combo select */
+.combito select {
+   background-color: white;
+   color: black;
+}
+/* Definiendo estilos para la creación del encabezado de la sala */
+#encabezado2 {
+   background-color: black;
+   color: white;
+   text-align: center;
+   padding: 20px; 
+   margin-bottom: 20px;
+}
+
+/* Definiendo estilos para la creación del encabezado de la sala con la eqtiqueta 'h2' */
+#encabezado h2 {
+   margin-bottom: 10px;
+}
+
+/* Definiendo estilos para la creación del código de la sala */
+.codigo-sala {
+   background-color: white;
+   color: black;
+   padding: 20px;
+   text-align: center;
+   font-size: 40px;
+   font-weight: bold;
+   margin-bottom: 20px;
+}
+
+.espacios-negros {
+   background-color: black;
+   height: 20px;
+   margin-bottom: 20px;
+   margin: 10px;
+}
+
+.btn-iniciar-juego {
+   background-color: black;
+   color: white;
+   font-size: 24px;
+   font-weight: bold;
+   padding: 10px 30px;
+   margin-bottom: 20px;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+}
+
+/* Estableciendo separación del navbar con el contenido inferior */
+.navbar {
+   margin-bottom: 50px;
+}
+
+/* Estableciendo color del texto de logo de NavBar */
+.navbar-brand{ 
+   color: white;
+}
+/* Cambiando tamaño de logo preguntados */
+.custom-image12 {
+   max-width: 40px;
+   height: auto;
+ }
+
+
+/****************************************************************************************************************************************/
+/* ESTILOS PARA LA SALA DE CONFIGURACION DEL JUEGO QUE HARA EL DOCENTE*/
+
+ /* Estabkeciendo el relleno al lado izquierdo en los elementos de la columna 1  */
+ #columna1 {
+     padding-left: 15%;
+ }
+ 
+   /* Estabkeciendo el relleno al lado izquierdo en los elementos de la columna 1  */
+ #columna2{
+     padding-left: 10%;
+ }
+ 
+ 
+ /* Estableciendo color a los iconos del navbar y margen de separacion de estos a la derecha */
+ .icono{
+     color: white;
+     padding-right: 10px;
+ }
+ 
+ /* Estableciendo estilo al texto 'crea tu juego' */
+ .textotitulo{
+     font-family: 'Poppins', sans-serif;
+     color: white;
+     font-size: 60px;
+     font-weight: 900;
+     margin-bottom: 10px;
+ }
+ 
+ .botonfinal{
+     font-family: 'Poppins', sans-serif;
+     font-weight: 800;
+ }
+ 
+ .boton{
+     width: 100px;
+     margin-left: 10px;
+ }
+ 
+ #cuerpo {
+     display: flex;
+     justify-content: center;
+ }
+ 
+ /* Estilo del título de 'Tipo de Pregunta' */
+ .textotipopregunta {
+     background-color: #DADADA;
+     color: #514FCF;
+     padding: 10px;
+     border-radius: 10px;
+     margin-bottom: 10px;
+     font-family: 'Poppins', sans-serif;
+     font-size: 25px;
+     font-weight: 900;
+ }
+ 
+ /* Estilizado del checkbox */
+ .checkbox{
+     background-color: #EFEFFD;
+     color: #5D5FEF;
+     padding-left: 30px;
+     margin-right: 40%;
+     border-radius: 5px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-bottom: 5px;
+     font-family: 'Poppins', sans-serif;
+ }
+ 
+ #textocol1{
+     color: white;
+     font-family: 'Poppins', sans-serif;
+ }
+ 
+ #textocol2{
+     color: white;
+     font-family: 'Poppins', sans-serif;
+     font-size: 20px;
+     margin-bottom: 5px;
+ }
+ 
+ .combito{
+     margin-bottom: 10px;
+ }
+ .generarboton{
+     margin-bottom: 20px;
+ }
+ 
+ /* Cambiando tamaño de logo preguntados */
+ .custom-image12 {
+     max-width: 40px;
+     height: auto;
+   }
+
+
+
+
+/****************************************************************************************************************************************/
+/* ESTILOS PARA LA SALA DE CONFIGURACION DEL MENU PRINCIPAL DEL ALUMNO*/ 
+.nav_link{
+    text-decoration: none;
+}
+
+/* Estableciendo color del texto de logo de NavBar */
+.navbar-brand{ 
+    color: white;
+}
+/* Cambiando tamaño de logo preguntados */
+.custom-image12 {
+    max-width: 40px;
+    height: auto;
+}
+
+/* Hacer cirular un cuadrado de imagen */
+.circular--square {
+    border-radius: 50%;
+}
+
+
+
+/**************************************************************************************************************************************/
+/* ESTILOS DE LA PAGINA DE LANDING PAGE */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+header{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 4%;
+    background: transparent;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    margin-left: -605px;     /* Estableciendo separación de nombre de logo con imagen dek logo*/
+}
+
+.navlist{
+    display: flex;
+}
+
+.navlist a{
+    color: white;
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all .55s ease;
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid white;
+}
+
+
+
+ .hero{ 
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    /* background: linear-gradient(0deg, rgba(125,34,195,1) 0%, rgba(253,45,171,1) 100%); */
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+section{
+    padding: 0 50%;/* Estableciendo la posición en el eje x de la sección que contiene la sección e imagen del landingPage */
+}
+
+.hero-text{margin-left: -100%;}  /* Separando el texto de la imagen hacia el lado izquierdo */
+
+.hero-text h5{
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.hero-text h1{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 110px;
+    line-height: 1;
+    color: white;
+    margin: 0 0 45px;
+}
+
+
+/* Estilizando texto de 'Bienvenido a ' */
+.hero-text h4{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 60px;
+    line-height: 0;
+    color: rgb(255, 255, 255);
+    margin: 0 0 45px; 
+}
+
+.hero-text p{
+    color: orange;
+    font-size: 27px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+/* Estableciendo diseño de la imagen flotante */
+.hero-img img{
+    width: 525px;
+    height: auto;
+}
+
+.hero-text a{
+    display: inline-block;
+    color: white;
+    background: #FD00A7;
+    border: 1px solid transparent;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+}
+
+.hero-text a:hover{
+    background: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.hero-text a.ctaa{
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.ctaa i{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+@media (max-width: 1800px){
+    header{
+        padding: 15px 3%;
+        transition: .2s;
+    }
+    .scroll-down{
+        right: 50%;
+        transition: .2s;
+    }
+}
+@media (max-width: 1460px){
+    section{
+        padding: 0 12%;
+        transition: .2s;
+    }
+}
+@media (max-width: 1340px){
+    .hero-img img{
+        width: 100%;
+        height: auto;
+    }
+    .hero-text h1{
+        font-size: 75px;
+        margin: 0 0 30px;
+    }
+    .hero-text h5{
+        margin-bottom: 25px;
+    }
+}
+@media (max-width: 1195px){
+    section{
+        padding: 0 3%;
+        transition: .2s;
+    }
+    .hero-text{
+        padding-top: 115px;
+    }
+    .hero-img{
+        text-align: center;
+    }
+    .hero-img img{
+        width: 560px;
+        height: auto;
+    }
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 10fr;
+    }
+    .scroll-down{
+        display: none;
+    }
+}
+
+@media (max-width: 990px){
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 300px;
+        height: 40vh;
+        background: #FD00A7;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px 20px;
+        transition: all .55s ease;
+    }
+    .navlist a{
+        margin-left: 0;
+        display: block;
+        margin: 15px 0;
+    }
+    .navlist.open{
+        right: 0;
+    }
+}
+
+@media (max-width: 680px){
+    .hero-img img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+.flotar {
+    animation-name: flotar;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes flotar {
+    0% {
+      transform: translateX(10px) translateY(-10px) rotate(10deg);
+    }
+    25% {
+      transform: translateX(100px) translateY(30px) rotate(5deg);
+    }
+    50% {
+      transform: translateX(10px) translateY(60px) rotate(10deg);
+    }
+    75% {
+      transform: translateX(100px)  translateY(30px) rotate(5deg);
+    }
+    100% {
+      transform: translateX(10px)  translateY(-10px) rotate(10deg);
+    }
+  }
+  
+
+  /******************************************************************************************************************************/
+  /* ESTILOS DEL MENU DE PROFESORES */
+#navclock2{
+    padding: auto;
+    margin: auto;
+}
+#preguntaB b{
+    font-size: 40px;
+    font-weight: 900;
+    color: rgb(253, 253, 253);
+    font-family: 'Poppins', sans-serif;
+    margin-left: 20%;
+}
+  
+.opcion label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+  
+.opcion label:hover {
+    background-color: rgba(0, 0, 255, 0.741);
+}
+.opcion{
+    padding-left: 20%;
+}
+#cuerpo2{
+    
+    margin-top: 20px;
+    padding-top: 15px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+/* 
+#encabezado{
+    background-color: rgb(25, 45, 38);
+}
+ */
+
+#selecciona p span{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+}
+#seccionsalones{
+    align-items: center;
+}
+#selecciona p{
+    text-align: center;
+}
+
+
+#usuarionav{
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+#botoncrear{
+    margin-bottom: 10px;
+}
+
+.fondogris2 {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.fondoverde {
+    background-color: #31CA2D;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 8px;
+}
