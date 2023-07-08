@@ -73,7 +73,7 @@
                         </div>
 
                         <div>
-                            <p style="font-size: 1.5vw;">2000</p>
+                            <p style="font-size: 1.5vw;">{{$puntaje}}</p>
                         </div>
                     </div>
 
@@ -91,12 +91,12 @@
                     <div class="" style="display: flex;justify-content: space-around;">
                         <div class="" style="display: flex; justify-content:space-between;">
                             <p style="padding: 0 10px 0 10px;">Total preguntas</p>
-                            <p style="padding: 0 10px 0 10px;">10</p>
+                            <p style="padding: 0 10px 0 10px;">{{$num_preguntas}}</p>
                         </div>
 
                         <div style="display: flex; justify-content:space-between;">
                             <p style="padding: 0 10px 0 10px;">Tiempo</p>
-                            <p style="padding: 0 10px 0 10px;">12:05</p>
+                            <p style="padding: 0 10px 0 10px;">{{$duracion}}</p>
                         </div>
                     </div>
 
@@ -146,12 +146,15 @@
 
                                                 " >
 
-                                               <p style="@if($respuesta_elegida[$id_pregunta]===$respuesta)
-                                                font-weight:bold;
-                                                @if($estado===0)
-                                                color:red;
-                                                @endif
-                                                 @endif  "> 
+                                               <p style="
+                                                        
+                                                        @if($respuesta === $respuesta_elegida[$id_pregunta])
+                                                        font-weight:bold;
+                                                        @if($estado===0)
+                                                            color:red
+                                                        @endif
+                                                        @endif
+                                                "> 
                                                 {{$respuesta}} </p>
                                             </button>
                                         </div>

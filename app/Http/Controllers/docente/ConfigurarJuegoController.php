@@ -46,6 +46,7 @@ class ConfigurarJuegoController extends Controller
                     ->where('id_curso','=',$curso)
                     ->where('id_modulo','=',$modulo)
                     ->get();
+
                     foreach ($preguntas as $pregunta) {
                         $resultados[] = $pregunta->id_pregunta;
                     }

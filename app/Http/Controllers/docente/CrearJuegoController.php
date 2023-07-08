@@ -14,10 +14,11 @@ class CrearJuegoController extends Controller
         $codigo =$request->codigo;
 
         $array_preguntas =DB::table('partida')
-        ->select('partida_preguntas.id_pregunta','partida_preguntas.id_partida')
+        ->select('partida_preguntas.id_pregunta','partida_preguntas.id_partida','partida.duracion','partida.num_preguntas')
         ->join('partida_preguntas','partida.id_partida','=','partida_preguntas.id_partida')
         ->where('codigo','=',$codigo)
         ->get();
+
 
         foreach ($array_preguntas as $array_pregunta) {
 
@@ -41,9 +42,9 @@ class CrearJuegoController extends Controller
        $grupo_pregunta[$id_pregunta->id_pregunta][$id_pregunta->pregunta][$id_pregunta->respuesta]= $id_pregunta->estado;   
         }
 
-    #return dd($id_partida);
+    #return dd($grupo_pregunta);
 
-        return view('estudiante.juego',compact('grupo_pregunta','id_partida'));
+       return view('estudiante.juego',compact('grupo_pregunta','id_partida'));
 
 
     }

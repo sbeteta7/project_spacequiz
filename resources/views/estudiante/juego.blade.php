@@ -62,6 +62,7 @@
             <!-- Estableciendo div del contenido principal de la pregunta  -->
             <form id="form-respuestas" action="{{ route('calcular_puntaje') }}" method="POST" >
             @csrf
+                
                 <input type="text" hidden value="{{$id_partida}}" name="id_partida">
             <div style="display: flex;flex-direction: column;height: 100%;" id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -80,7 +81,7 @@
                                     <div style="width: 90%; ; display: flex;flex-direction: column;justify-content: center;">
                                        
                                         @foreach ($pregunta as $texto_pregunta=>$respuesta)
-                                        <input type="text" name="pregunta[{{ $id_pregunta }}]" hidden value="{{$id_pregunta}}">
+                                        <input type="text" name="pregunta[{{ $id_pregunta }}]" hidden value="{{$texto_pregunta}}">
                                         <div style="font-size: 3vw;" class="text-center text-dark h1 fw-bold">{{$texto_pregunta}}</div>
 
                                     </div>
@@ -96,9 +97,10 @@
                                         @foreach ($respuesta as $texto_respuesta=>$estado)
                                         
                                         <div class="form-check" style="padding: 0px 100px 0px 100px">
-                                            <label>{{$texto_respuesta}}</label>
-                                                <input type="text"  value="{{$texto_respuesta}}" name="texto_respuesta[{{$id_pregunta}}]" hidden>
-                                              <input class="form-check-input" type="radio" name="respuestas[{{ $id_pregunta }}]" value="{{ $estado }}">
+                                            <label>{{$texto_respuesta}}</label> 
+
+                                                <input class="form-check-input" type="radio" name="respuestas[{{ $id_pregunta }}]" value="{{ $texto_respuesta }}">
+                                                
                                         </div>
                                         @endforeach
                                     </div>

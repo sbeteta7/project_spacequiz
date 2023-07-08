@@ -49,7 +49,7 @@ Route::controller(ConfigurarJuegoController::class)->group(function(){
 
 Route::post('/juego', [CrearJuegoController::class, 'crear_juego'])->name('crear_juego');
 
-Route::post('/resultado',[ResultadoController::class,'resultado_juego'])->name('resultado');
+Route::any('/resultado',[ResultadoController::class,'resultado_juego'])->name('resultado');
 
 Route::post('/calcular_puntaje',[ResultadoController::class,'calcular_puntaje'])->name('calcular_puntaje');
 
