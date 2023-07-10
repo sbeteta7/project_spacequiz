@@ -30,27 +30,8 @@ class ConfigurarJuegoController extends Controller
     
 
     public function seleccionar_preguntas(Request $request){
-#ELEGIR COMBO DE PREGUNTAS      
-        $especialidad =$request->especialidad;
 
-        $ciclo =$request->ciclo; 
-        $curso =$request->curso;
-        $modulo =$request->modulo;
-
-
-        $preguntas =DB::table('preguntas')
-                    ->select('id_pregunta')
-                #    ->join('respuestas','preguntas.id_pregunta','=','respuestas.id_pregunta')
-                    ->where('id_especialidad','=',$especialidad)
-                    ->where('id_ciclo','=',$ciclo)
-                    ->where('id_curso','=',$curso)
-                    ->where('id_modulo','=',$modulo)
-                    ->get();
-
-                    foreach ($preguntas as $pregunta) {
-                        $resultados[] = $pregunta->id_pregunta;
-                    }
-#CONFIGURAR Y CREAR PARTIDA                    
+        #CONFIGURAR Y CREAR PARTIDA                    
 
         $partida= new Partida;
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
@@ -59,13 +40,35 @@ class ConfigurarJuegoController extends Controller
         $partida->duracion = $request->duracion;
         $partida->save();
 
+        #ELEGIR COMBO DE PREGUNTAS      
+        $especialidad =$request->especialidad;
+        $ciclo =$request->ciclo; 
+        $curso =$request->curso;
+        $modulo =$request->modulo;
+        $num_preguntas=$partida->num_preguntas;
+
+        $preguntas =DB::table('preguntas')
+                    ->select('id_pregunta')
+                #    ->join('respuestas','preguntas.id_pregunta','=','respuestas.id_pregunta')
+                    ->where('id_especialidad','=',$especialidad)
+                    ->where('id_ciclo','=',$ciclo)
+                    ->where('id_curso','=',$curso)
+                    ->where('id_modulo','=',$modulo)
+                    ->inRandomOrder()
+                    ->limit($num_preguntas)
+                    ->get();
+
+                    foreach ($preguntas as $pregunta) {
+                        $resultados[] = $pregunta->id_pregunta;
+                    }
 
 
+        #Crear relacion preguntas y partida
         $partida->Preguntas()->attach($resultados);
 
         
 
-        $hola=dd($partida);
+        return view('docente.sala_juego');
     
         /*
         $grupo_pregunta = [];
@@ -76,7 +79,7 @@ class ConfigurarJuegoController extends Controller
 
 
 
-        return view('docente.resultado',compact('hola'));
+       # return view('docente.resultado',compact('hola'));
 
     }
 

@@ -34,12 +34,7 @@ Route::controller(RegistroController::class)->group(function(){
 
 
 Route::controller(ConfigurarJuegoController::class)->group(function(){
-    /*
-    Route::get('get-especialidades','view_especialidades')->name('getEspecialidades');
-    Route::get('get-cursos','view_cursos')->name('getCursos');
-    Route::get('get-ciclos','view_ciclos')->name('getCiclos');
-    Route::get('get-modulos','view_modulos')->name('getModulos');
-    */
+
     Route::get('/configuracion','configurar_juego');
     Route::post('banco_preguntas','seleccionar_preguntas')->name('banco_preguntas');
 
@@ -48,10 +43,11 @@ Route::controller(ConfigurarJuegoController::class)->group(function(){
 });
 
 Route::post('/juego', [CrearJuegoController::class, 'crear_juego'])->name('crear_juego');
+Route::post('/estado_juego', [ResultadoController::class, 'estado_partida'])->name('estado_juego');
 
 Route::any('/resultado',[ResultadoController::class,'resultado_juego'])->name('resultado');
 
-Route::post('/calcular_puntaje',[ResultadoController::class,'calcular_puntaje'])->name('calcular_puntaje');
+Route::any('/calcular_puntaje',[ResultadoController::class,'calcular_puntaje'])->name('calcular_puntaje');
 
 
 Route::middleware([

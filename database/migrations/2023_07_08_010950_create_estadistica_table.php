@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id_usuario')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('puntajes')->nullable();
+            $table->boolean('estado')->default(false);
         });
     }
 

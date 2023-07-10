@@ -73,7 +73,7 @@
                         </div>
 
                         <div>
-                            <p style="font-size: 1.5vw;">{{$puntaje}}</p>
+                            <p style="font-size: 1.5vw;">{{$puntajes}}</p>
                         </div>
                     </div>
 
@@ -96,19 +96,19 @@
 
                         <div style="display: flex; justify-content:space-between;">
                             <p style="padding: 0 10px 0 10px;">Tiempo</p>
-                            <p style="padding: 0 10px 0 10px;">{{$duracion}}</p>
+                            <p style="padding: 0 10px 0 10px;"> {{$tiempo_terminado}}   /{{$duracion}}</p>
                         </div>
                     </div>
 
                     <div style="display: flex;justify-content: space-around;">
                         <div style="display: flex; justify-content:space-between;">
                             <p style="padding: 0 10px 0 10px;">Correctos</p>
-                            <p style="padding: 0 10px 0 10px;">5</p>
+                            <p style="padding: 0 10px 0 10px;">{{$respuestas_correctas}}</p>
                         </div>
 
                         <div style="display: flex; justify-content:space-between;">
                             <p style="padding: 0 10px 0 10px;">Incorrectos</p>
-                            <p style="padding: 0 10px 0 10px;">5</p>
+                            <p style="padding: 0 10px 0 10px;">{{$respuestas_incorrectas}}</p>
                         </div>
                     </div>
                 </div>
@@ -145,15 +145,16 @@
                                                 @endif
 
                                                 " >
-
                                                <p style="
-                                                        
+                                                    @isset($respuesta_elegida[$id_pregunta])
                                                         @if($respuesta === $respuesta_elegida[$id_pregunta])
                                                         font-weight:bold;
                                                         @if($estado===0)
-                                                            color:red
+                                                            color:red;
                                                         @endif
+
                                                         @endif
+                                                    @endisset
                                                 "> 
                                                 {{$respuesta}} </p>
                                             </button>

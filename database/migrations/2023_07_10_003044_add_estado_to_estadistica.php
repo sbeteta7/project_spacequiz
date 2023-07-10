@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('partida', function (Blueprint $table) {
-            $table->id('id_partida');
-            $table->string('codigo')->unique();
-            $table->integer('duracion');
-            $table->integer('num_preguntas');
+        Schema::table('estadistica', function (Blueprint $table) {
             $table->boolean('estado')->default(false);
-            $table->timestamps();
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('partida');
+        Schema::table('estadistica', function (Blueprint $table) {
+            //
+        });
     }
 };

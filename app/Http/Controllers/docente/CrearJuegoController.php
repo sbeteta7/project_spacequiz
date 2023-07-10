@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 class CrearJuegoController extends Controller
 {
     public function crear_juego(Request $request){
+        
+        
         $codigo =$request->codigo;
 
         $array_preguntas =DB::table('partida')
@@ -19,12 +21,20 @@ class CrearJuegoController extends Controller
         ->where('codigo','=',$codigo)
         ->get();
 
+       
+  #      $id_partida=$array_preguntas->first()->id_partida;
 
+     #   $this->acceso_partida($id_partida);
         foreach ($array_preguntas as $array_pregunta) {
 
             $valores[] = $array_pregunta->id_pregunta;
             $id_partida = $array_pregunta->id_partida;
+            $total_preguntas=$array_pregunta->num_preguntas;
+            $duracion=$array_pregunta->duracion;
         }
+        $this->acceso_partida($id_partida);
+        
+  
      #   $id_partida=$array_preguntas->id_partida;
 
         $preguntas =DB::table('preguntas')
@@ -35,6 +45,7 @@ class CrearJuegoController extends Controller
 
         $grupo_pregunta = [];
 
+
         foreach ($preguntas as $id_pregunta) {
 
         #$grupo_pregunta[$id_pregunta->id_pregunta][$id_pregunta->pregunta][$id_pregunta->id_respuesta][$id_pregunta->respuesta]= $id_pregunta->estado;   
@@ -44,9 +55,34 @@ class CrearJuegoController extends Controller
 
     #return dd($grupo_pregunta);
 
-       return view('estudiante.juego',compact('grupo_pregunta','id_partida'));
+       return view('estudiante.juego',compact('grupo_pregunta','id_partida','duracion','total_preguntas'));
 
 
     }
+
+        //METODO ESTADO PARTIDA
+        public function acceso_partida($id_partida){
+            $auth_usuario=auth()->id();
+
+            $partida_usuario = DB::table('estadistica')
+                ->select('estado')
+                ->where('id_usuario', $auth_usuario)
+                ->where('id_partida',$id_partida)
+                ->first();
+            
+            if ($partida_usuario && $partida_usuario->estado !== 0) {
+                abort(403, 'Acceso no autorizado');
+                return view('estudiante.resultados');
+                
+
+            }
+
+            
+        }
+    
+
+
+
+
 }
 

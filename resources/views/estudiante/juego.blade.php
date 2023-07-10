@@ -21,20 +21,22 @@
     
 </head>
 <body >
+
     <div class="container-fluid" style="background-image:url(images/cielo.jpg) ">
         <!-- Main='contenido principal de body' estableciendo estilo del body -->
         <main style="height: 100vh; display: flex;flex-direction: column;" class="px-5">
+
+
+
             <!-- Estableciendo diseño de la barra superior con avance de las preguntas -->
-            <div style="background-color: black;display: flex;" class="rounded-5">
-                 <!--Texto indicando el número de preguntas en la que estás y su posición-->
-                <div style="display: flex; flex-grow: 1;justify-content: center;align-items: center;">
-                    <p class="text-white">1/10</p>
-                </div>
+            <div style="background-color: rgb(255, 97, 97);display: flex;" class="rounded-5">
+   
                 <!--Estableciendo barra de avance de preguntas-->
                 <div style="display: flex; flex-grow: 8;flex-direction: column;">
                     <!-- Estableciendo margen de separación superior con su div-->
                     <div style="padding: 10px 30px 0px 30px;">
-                        <!-- Estableciendo diseño y color de barra y su progreso -->
+                        <!-- Estableciendo diseño y color de barra y su progreso 
+
                         <div style="background-color: rgba(255, 255, 255);height: 10px;" class="rounded-5">
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
@@ -42,11 +44,13 @@
                                 </div>
                             </div>
                         </div>
+                        -->
                     </div>
                     <!-- Definiendo posición y estilo del contador en la parte imferior de la barra -->
                     <div style="width: 100%;display: flex;justify-content: center;align-self: center;align-items: center;" class="">
                         <!-- Contador del tiempo dentro de barra-->
-                        <p style="height: 100%;margin: 0px!important;" class="text-white">15:27</p>
+                        <p  id="duracion" data-valor={{$duracion}} hidden></p>
+                        <p style="height: 100%;margin: 0px!important;" class="text-white" id="contador"></p>
                     </div>
                 </div>
                 <!-- Estableciendo botón de 'Salir' con su posición en la barra de avance de pregunta -->
@@ -59,11 +63,15 @@
             </div>
 
 
-            <!-- Estableciendo div del contenido principal de la pregunta  -->
-            <form id="form-respuestas" action="{{ route('calcular_puntaje') }}" method="POST" >
+            <!-- Formulario partida  -->
+            <form  action="{{ route('calcular_puntaje') }}" method="POST" id="form_juego" >
             @csrf
-                
+
+
                 <input type="text" hidden value="{{$id_partida}}" name="id_partida">
+                <input type="text" hidden name="tiempo_terminado" id="tiempo">
+
+
             <div style="display: flex;flex-direction: column;height: 100%;" id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     @php
@@ -71,9 +79,24 @@
                     @endphp
                 <!-- Estableciendo el color de fondo y tamaño que ocupará la pregunta -->
                    
-                @foreach ($grupo_pregunta as $id_pregunta => $pregunta)
+            @foreach ($grupo_pregunta as $id_pregunta => $pregunta)
 
-                        <div class="card carousel-item @if ($index === 0) active @endif">
+            <div class="card carousel-item @if ($index === 0) active @endif">
+                                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <!--Texto indicando el número de preguntas en la que estás y su posición-->
+                <div style="display: flex; flex-grow: 1;justify-content: center;align-items: center;">
+                    
+                    <div class="" style="position:relative;top:0%">{{$index+1}}/{{$total_preguntas}}</div>
+                </div>
                             <div style="height: 50%;background-color:rgba(205, 205, 227, 0.45);">
                                 <!-- Estableciendo posición del texto dentro del fondo blanco de forma vertical -->
                                 <div style="display: flex;padding:50px">
@@ -81,7 +104,8 @@
                                     <div style="width: 90%; ; display: flex;flex-direction: column;justify-content: center;">
                                        
                                         @foreach ($pregunta as $texto_pregunta=>$respuesta)
-                                        <input type="text" name="pregunta[{{ $id_pregunta }}]" hidden value="{{$texto_pregunta}}">
+                                        <input type="text" name="pregunta[{{ $id_pregunta }}]" hidden 
+                                        value="{{$texto_pregunta}}">
                                         <div style="font-size: 3vw;" class="text-center text-dark h1 fw-bold">{{$texto_pregunta}}</div>
 
                                     </div>
@@ -94,21 +118,23 @@
                                 <div style="display: flex; justify-content: center;height: 88%;">
                                     <!-- Definiendo tamaño de las opciones de las preguntas -->
                                     <div style="display: flex;flex-direction: column;justify-content:space-evenly;width: 70%;">
-                                        @foreach ($respuesta as $texto_respuesta=>$estado)
+                                        
+          
+                                            @foreach ($respuesta as $texto_respuesta=>$estado)
                                         
                                         <div class="form-check" style="padding: 0px 100px 0px 100px">
                                             <label>{{$texto_respuesta}}</label> 
 
-                                                <input class="form-check-input" type="radio" name="respuestas[{{ $id_pregunta }}]" value="{{ $texto_respuesta }}">
+                                                <input class="form-check-input" type="radio"  name="respuestas[{{ $id_pregunta }}]" value="{{ $texto_respuesta }}">
                                                 
-                                        </div>
+                                        </div> 
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
 
                         
-                        </div>
+        <!-- Termina da-->    </div>
                         @endforeach
                         @php
                             $index++;
@@ -118,7 +144,7 @@
 
 
                     @endforeach
-                </div>
+               </div>
 
 
                 <div style="background-color: black;height: 5%;display: flex;justify-content:space-between;padding: 0 10% 0 10%;" class="rounded">
@@ -134,8 +160,8 @@
                 </div>
                 
 
-         </div>
-         <button type="submit" class="btn btn-primary">Enviar respuestas</button>
+        <!--Terminar carousel--> </div>
+         <button  id="enviar_form"  class="btn btn-primary">Enviar respuestas</button>
             </form>
 
 
@@ -146,6 +172,8 @@
     </div>    
 
 <script>
+
+
   $(document).ready(function() {
       $('#carousel').carousel({
           interval: false // Para detener la rotación automática del carrusel
@@ -160,6 +188,86 @@
       });
   });
 </script>
+
+<script>
+    const form_estado_game= document.getElementById('form_juego');
+    var  input_tiempo=document.getElementById('tiempo');
+    contador = 0;
+
+    var duracion = document.getElementById("duracion").getAttribute('data-valor')
+    duracion=duracion*60
+
+
+
+    // Función para convertir segundos a formato de hora, minuto y segundo (HH:MM:SS)
+    function convertirTiempo(segundos) {
+      var horas = Math.floor(segundos / 3600);
+      var minutos = Math.floor((segundos % 3600) / 60);
+      var segundos = segundos % 60;
+
+      var tiempoFormateado = horas.toString().padStart(2, '0') + ':' +
+                             minutos.toString().padStart(2, '0') + ':' +
+                             segundos.toString().padStart(2, '0');
+
+      return tiempoFormateado;
+    }
+    
+    //Etiqueta del contador
+    var etiqueta_contador=document.getElementById("contador");
+
+    function FinJuego(){
+        document.getElementById('enviar_form').addEventListener('click',function(event){
+            event.preventDefault();
+
+            input_tiempo.value=etiqueta_contador.innerHTML;
+            form_estado_game.submit();
+        })
+    }
+
+    // Función para iniciar el temporizador
+    function iniciarTemporizador() {
+      // Verificar si ya existe un valor almacenado en localStorage
+      if (localStorage.getItem('contador')) {
+        // Recuperar el valor del contador
+        //parseInt(localStorage.getItem('contador'))
+        var contador = 100;
+      } else {
+        // Si no hay un valor almacenado, establecer un valor inicial
+        var contador = duracion; // Establece aquí el valor inicial deseado en segundos
+      }
+
+      // Actualizar el valor del contador en formato de tiempo
+      document.getElementById('contador').innerHTML = convertirTiempo(contador);
+
+      // Intervalo de tiempo para actualizar el contador cada segundo (1000 ms)
+      var intervalo = setInterval(function() {
+        // Reducir el valor del contador en 1
+        contador--;
+
+        // Actualizar el valor del contador en formato de tiempo
+        document.getElementById('contador').innerHTML = convertirTiempo(contador);
+
+        // Almacenar el valor actual del contador en localStorage
+        localStorage.setItem('contador', contador.toString());
+        
+        // Verificar si el contador ha llegado a 0
+        if (contador === 0) {
+          // Detener el intervalo de tiempo
+          clearInterval(intervalo);
+          input_tiempo.value=convertirTiempo(duracion);
+          form_estado_game.submit();
+
+        }
+      }, 1000);
+
+      FinJuego()
+    }
+
+
+    // Llamar a la función para iniciar el temporizador
+    iniciarTemporizador();
+    
+  </script>
 <script src="https://kit.fontawesome.com/a70db94014.js" crossorigin="anonymous"></script> 
 </body>
 
