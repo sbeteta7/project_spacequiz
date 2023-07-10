@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Ciclo extends Model
 {
     use HasFactory;
-
+    protected $table='ciclo';
     protected $fillable = [
         'ciclo'
     ];

@@ -30,17 +30,17 @@
         <div class="container">
             <header>
                 <img src="images/Logo - copia.png" alt="">
-                <a href="landing.html" class="logo">Space Quiz</a>
+                <a href="{{ route('welcome') }}" class="logo">Space Quiz</a>
                 <ul class="navlist">
                 @if (Route::has('login'))
                     @auth
-                        <li><a href="info.html">Más Información</a></li>
-                        <li><a href="jugar.html">¿Cómo jugar?</a></li>
+                        <li><a href="{{ route('info') }}">Más Información</a></li>
+                        <li><a href="{{ route('guia') }}">¿Cómo jugar?</a></li>
                         <li><a href="{{ url('/redirects') }}">Inicio</a></li>
 
                     @else
-                    <li><a href="info.html">Más Información</a></li>
-                    <li><a href="jugar.html">¿Cómo jugar?</a></li>
+                    <li><a href="{{ route('info') }}">Más Información</a></li>
+                    <li><a href="{{ route('guia') }}">¿Cómo jugar?</a></li>
                     <li><a href="{{ route('login') }}">Login</a></li>
                     <li><a href="{{ route('tipo_cuenta')}}">Registrar</a></li>
                         
@@ -73,6 +73,8 @@
                 </div>
             </section>
         <script src="js/script.js"></script>
+
+        
     </body>
 </html>
 

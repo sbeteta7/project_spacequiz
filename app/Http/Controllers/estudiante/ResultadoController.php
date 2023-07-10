@@ -27,7 +27,6 @@ class ResultadoController extends Controller
             ->first();
         
         if ($partida_usuario && $partida_usuario->estado !== 0) {
-            
             abort(403, 'Acceso no autorizado');
         }
 
@@ -43,7 +42,7 @@ class ResultadoController extends Controller
 
 //Calcular puntaje y creacion de tabla intermedia estadistica
     public function calcular_puntaje(Request $request){
-//dd($request['respuestas']);
+
         $id_partida=$request['id_partida'];
  
 
@@ -55,7 +54,7 @@ class ResultadoController extends Controller
             ->whereIn('respuesta',$request['respuestas'])
             ->get();
         
-   // dd($consulta_respuesta);        
+     
 
             if (is_null($consulta_respuesta->first())) {
                $puntaje=0;
@@ -67,7 +66,6 @@ class ResultadoController extends Controller
         } else {
             $puntaje=0;
             $respuestas_correctas=0;
-
         }
 
   
@@ -127,8 +125,7 @@ return redirect()->route('resultado')->withInput([$request->except('_token'),'pu
 
         $num_preguntas=$datos_partida[0]->num_preguntas;
         $respuestas_incorrectas=$num_preguntas-$respuestas_correctas;
-
-
+        
         $respuestas =DB::table('respuestas')
         ->select('respuesta','estado','id_pregunta')
         ->whereIn('id_pregunta',$array_id)
@@ -138,14 +135,7 @@ return redirect()->route('resultado')->withInput([$request->except('_token'),'pu
         foreach ($respuestas as $respuesta) {
             $array_respuestas[$respuesta->id_pregunta][$datos['pregunta'][$respuesta->id_pregunta]][$respuesta->respuesta]=$respuesta->estado;
         }
-//dd($array_respuestas);
-       
-
         
     return view('estudiante.resultados',compact('array_respuestas','respuesta_elegida','puntajes','duracion','num_preguntas','tiempo_terminado','respuestas_correctas','respuestas_incorrectas'));
-
     }
-
-
-
 }    

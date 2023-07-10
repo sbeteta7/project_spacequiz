@@ -12,7 +12,7 @@ class HomeController extends Controller
         $rol=Auth::user()->id_rol;
 
         if($rol==1){
-            return view('comite.admin');
+            return view('comite.comiteMenu');
         }else if($rol==2){
             return view('docente.docente');
         }else if($rol==3){

@@ -21,7 +21,7 @@
                     
                     
                         <div class="control_tipo" onmouseover="active_radio(3)" onclick="enviar_form_role()" id="radio_estudiante" style="border: solid 3px blue;  margin-top: 20px">
-                            <input type="radio" name="tipo_cuenta" value=3 id="estudiante">
+                            <input type="radio" name="tipo_cuenta" value=3 id="estudiante" hidden>
                             <!--tipo de cuenta comite-->
                             <div style="height: 80%" class="d-flex justify-content-center align-items-center">
                                 <i class="fa-solid fa-graduation-cap icon_cuenta "
@@ -39,7 +39,7 @@
                     <!--Espacio para tipos de docente-->
                     
                         <div class="control_tipo" onmouseover="active_radio(2)" onclick="enviar_form_role()" id="radio_docente" style="border: solid 3px blueviolet;margin-top: 20px;">
-                            <input type="radio" name="tipo_cuenta" value=2 id="docente">
+                            <input type="radio" name="tipo_cuenta" value=2 id="docente" hidden>
                             <!--tipo de cuenta comite-->
                             <div style="height: 80%" class="d-flex justify-content-center align-items-center">
                                 <i class="fa-sharp fa-solid fa-suitcase icon_cuenta"
@@ -56,7 +56,7 @@
                     <!--Espacio para tipos de comite-->
                     
                         <div class="control_tipo" onmouseover="active_radio(1)" onclick="enviar_form_role()" id="radio_comite" style="border: solid 3px orange;margin-top: 20px">
-                            <input type="radio" name="tipo_cuenta" value=1 id="comite">
+                            <input type="radio" name="tipo_cuenta" value=1 id="comite" hidden>
                             <div style="height: 80%" class="d-flex justify-content-center align-items-center">
                                 <i class="fa-solid fa-user icon_cuenta" style="color: orange;"></i>
                             </div>
@@ -74,11 +74,14 @@
 
     <div class="d-flex justify-content-center" style="padding-top: 50px;"><!--opcion de iniciar sesion-->
         <div>
-            <p style="display: inline;">¿Tienes una cuenta? </p> <a href="login.html">Inicia sesión</a>
+            <p style="display: inline;">¿Tienes una cuenta? </p> <a href="{{ route('login') }}">Inicia sesión</a>
         </div>
     </div>
 </div>
 @endempty
+
+
+
 
 @isset ($tipo_cuenta)
 <div style="height: 100vh;" class="d-flex justify-content-center align-items-center">
@@ -115,7 +118,7 @@
                     <!-- Agregar funcion que indique que no se ha obtenido el tipo de cuenta -->
                     <div class="card" style="position:absolute;top:0px"> <p>ERROR: NO SE OBTUVO EL TIPO DE CUENTA</p></div>
                 @else
-                    <input type="number" value="{{$tipo_cuenta}}"  name="rol" id="rol" required >
+                    <input type="number" value="{{$tipo_cuenta}}" hidden name="rol" id="rol" required >
                 @endif
 
                     <div class="single_col box_input" ><!--Caja de contraseña -->
@@ -148,15 +151,12 @@
 
                     <div>
                         <div class="d-flex justify-content-center" style="padding-top: 30px;"><!--Caja de boton de registrarme-->
-                        <input type="submit" value="Registrarme"  class="btn btn-warning btn-outline-secondary btn-lg"  style="color: rgb(0, 0, 0)" > 
-                        
-                            <x-button class="ml-4">
-                                {{ __('Register') }}
-                            </x-button> 
+                        <input type="submit" value="Registrarme"  class="btn btn-danger btn-outline-secondary btn-lg"  style="color: rgb(0, 0, 0)" > 
+      
                         </div>
                         <div class="d-flex justify-content-center" style="padding-top: 50px;"><!--Iniciar sesion-->
                             <p class="d-flex " style="display: flex;">¿Tienes una cuenta? 
-                            <a href="{{""}}">Inicia sesión</a>
+                            <a href="{{ route('login') }}">Inicia sesión</a>
                         </div>
                     </div>
 
@@ -164,9 +164,9 @@
             </div>
         </div>
         
-        <div class="col-lg-6 card box_main_img  d-flex justify-content-center align-items-center box_main_form" style="background-color: aqua;"> <!--seccion imagen-->
+        <div class="col-lg-6 card box_main_img  d-flex justify-content-center align-items-center box_main_form"> <!--seccion imagen-->
 
-                <img src="" alt="" width="100%" height="100%">
+            <img src="images/RegistroComite.jpg" alt=""  >
                 <div class="card-img-overlay d-flex align-items-start flex-column bd-highlight mb-3 ">
                     <div class="p-2  d-flex flex-column justify-content-center" style="width: 100%; height: 50%;">
                         <!--Texto superiore-->

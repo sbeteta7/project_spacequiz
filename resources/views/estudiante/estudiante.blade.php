@@ -50,7 +50,7 @@
                                 <x-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
                                          <i class="fa fa-sign-out"></i>{{ __('Logout') }}
                                  </x-responsive-nav-link>
-                         </form>
+                            </form>
                         </div>
                     </div>
                 </nav>
@@ -63,7 +63,7 @@
                      <div style="display: flex;">
                         <!-- Estableciendo la caja de código de la sala con su posición en la página-->
                         <div class="d-flex justify-content-center" style="width: 50%;"> 
-                            <img src="images/foto_carlitos.jpeg" class="circular--square" width="300px" height="300px" alt="">
+                            <img src="images/astro.png" class="circular--square" width="800px" height="300px" alt="">
                         </div>
                         <!-- Estableciendo posición de caja de código e imagen -->
                         <div class="d-flex justify-content-start" style="width: 50%;">
@@ -103,3 +103,4 @@
             
     </body>
 </html>
+

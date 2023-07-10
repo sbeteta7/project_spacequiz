@@ -20,42 +20,27 @@
 <body class="fondo">
     <div style="display: flex;flex-direction: column; height: 100vh;">
 
-        <div class=" nav_homesite">
-            <div class=""> <!--Icono del logo de la aplicación-->
-                <p style="color: aliceblue;">Preguntados</p>
-            </div>
-            <!--Div de la lista de opciones de navegador-->
-            <!--Mas info/Como jugar/iniciar sesion/registrarse-->
-            <div class="nav_list">
-                <!--Div más info-->
-                <div class="box_link">
-                    <a href="info.html" class="nav_link">
-                        <p class="nav_text">Mas info</p>
-                    </a>
-                </div>
-                <!--Div de ¿cómo jugar?-->
-                <div class="box_link">
-                    <a href="jugar.html" class="nav_link">
-                        <p class="nav_text">Cómo jugar?</p>
-                    </a>
-                </div>
-                <!--Div de iniciar sesión-->
-                <div class="box_link">
-                    
-                        <a href="login.html" class="nav_link">
-                            <p class="nav_text"> Iniciar sesión </p>
-                        </a>
+        <header>
+            <img src="images/Logo - copia.png" alt="">
+            <a href="{{ route('welcome') }}" class="logo">Space Quiz</a>
+            <ul class="navlist">
+            @if (Route::has('login'))
+                @auth
+                    <li><a href={{ route('info') }}>Más Información</a></li>
+                    <li><a href="{{ route('guia') }}">¿Cómo jugar?</a></li>
+                    <li><a href="{{ url('/redirects') }}">Inicio</a></li>
 
-                        <p class="nav_text">/</p>
-                        
-                        <a href="registro.html" class="nav_link">
-                            <p class="nav_text">Registrarse<p>
-                        </a>
+                @else
+                <li><a href="{{ route('info') }}">Más Información</a></li>
+                <li><a href="{{ route('guia') }}">¿Cómo jugar?</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href="{{ route('tipo_cuenta')}}">Registrar</a></li>
                     
-                </div>
-                <!--Div de registrarse-->
-            </div>
-        </div>
+                @endauth
+
+            @endif
+            </ul>
+        </header>
         
     <!--sección principal-->
             @yield('registro_contenido')

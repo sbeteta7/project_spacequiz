@@ -22,19 +22,22 @@
 </head>
 <body style="background-image: url(images/Marte1.jpg);">
     <!-- Estableciendo creación del navBar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-black">
+    <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid px-3">
-            <a href="{{ url('/')}}">
-                <img src="images/Logo - copia.png" class="image-fluid custom-image12" alt="">
-                <b class="navbar-brand px-2" style="color:white">SPACE QUIZ</b>        
-            </a>     
+            <a href="{{ url('/') }}">
+                <img src="images/Logo - copia.png" style="display:inline" class="custom-image12" alt="" width="50px" height="50px">
+                <p class="navbar-brand px-2" style="color:white; display:inline" >SPACE QUIZ</p>        
+            </a>    
         </div>
-        <!-- Estabeciendo iconos del lado derecho del navbar -->
-        <div class="col-2" id="navclock">
-            <div class="d-flex align-items-center justify-content-center">
-                <i class="ri-home-fill icono"></i>
-                <i class="ri-arrow-left-circle-fill icono"></i>
-                <i class="ri-user-line icono"></i>
+        <!-- Creación de despliegue de menú dentro del NavBar -->
+        <div class="col-1" id="navclock">
+            <div class="d-flex align-items-center justify-content-center px-3">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                             <i class="fa fa-sign-out"></i>{{ __('Logout') }}
+                     </x-responsive-nav-link>
+             </form>
             </div>
         </div>
     </nav>
@@ -141,10 +144,6 @@
                                         </select>
                                     </div>
                                 </div>
-
-
-
- 
                         </div>
                     </div>    
                 </div>
@@ -160,10 +159,7 @@
                 <div class="row mt-3">
 
                     <input type="submit" class="btn btn-lg btn-dark botonfinal generarboton" >
-                    <div class="col-md-12 d-flex justify-content-center">
-                        <a href="{{"codigosala"}}"><button class="btn btn-lg btn-dark botonfinal generarboton">
-                            Generar Código</button></a>
-                    </div>
+
                 </div>
 </form>
 

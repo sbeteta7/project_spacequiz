@@ -83,7 +83,7 @@
                             </div>
                             <!--Div para el texto de registrarse si no tienes cuenta-->
                             <div class="d-flex align-items-end justify-content-center">
-                                <a  class="d-flex texto_enlace" href="{{ url('/registro_tipo') }}">
+                                <a  class="d-flex texto_enlace" href="{{ route('tipo_cuenta')}}">
                                     <p>Si no tienes cuenta,Registrate </p>
                                 </a>
                             </div>

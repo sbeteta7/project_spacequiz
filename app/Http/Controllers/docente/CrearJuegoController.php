@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 
 class CrearJuegoController extends Controller
 {
+
+    
+
     public function crear_juego(Request $request){
         
         
@@ -53,13 +56,12 @@ class CrearJuegoController extends Controller
        $grupo_pregunta[$id_pregunta->id_pregunta][$id_pregunta->pregunta][$id_pregunta->respuesta]= $id_pregunta->estado;   
         }
 
-    #return dd($grupo_pregunta);
+
 
        return view('estudiante.juego',compact('grupo_pregunta','id_partida','duracion','total_preguntas'));
 
 
     }
-
         //METODO ESTADO PARTIDA
         public function acceso_partida($id_partida){
             $auth_usuario=auth()->id();
@@ -72,10 +74,9 @@ class CrearJuegoController extends Controller
             
             if ($partida_usuario && $partida_usuario->estado !== 0) {
                 abort(403, 'Acceso no autorizado');
-                return view('estudiante.resultados');
-                
-
             }
+
+            
 
             
         }

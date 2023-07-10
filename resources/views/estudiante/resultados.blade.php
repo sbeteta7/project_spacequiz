@@ -16,32 +16,22 @@
 </head>
 
 <body>
+    
     <div style="display: flex;flex-direction: column; ">
-        <nav class=" nav_homesite"
-            style="background-color: aliceblue; height: 65px;display:flex;justify-content: space-between;align-items: center;">
-            <!--Sección superior de navegación y logo-->
-
-            <div class=""> <!--Icono del logo de la aplicación-->
-                <p style="color: rgb(0, 0, 0);">Preguntados</p>
-            </div>
-
-            <div class="nav_list"><!--Opciones de navegación de inicio-->
-
-                <div>
-                    <i class="fa-solid fa-house"></i>
-                </div>
-
-                <div>
-                    <i class="fa-sharp fa-solid fa-shoe-prints"></i>
-                </div>
-
-                <div>
-                    <i class="fa-solid fa-user"></i>
-                </div>
-
-            </div>
-
-        </nav>
+                       <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="padding: 0%">
+                    <div class="container-fluid px-3">
+                        <a href="{{ url('/') }}">
+                            <img src="images/Logo - copia.png" style="display:inline" class="custom-image12" alt="" width="50px" height="50px">
+                            <p class="navbar-brand px-2" style="color:white; display:inline" >SPACE QUIZ</p>        
+                        </a>    
+                    </div>
+                    <!-- Creación de despliegue de menú dentro del NavBar -->
+                    <div class="col-1" id="navclock">
+                        <div class="d-flex align-items-center justify-content-center px-3">
+                            <a href="{{ url('/redirects') }}">Volver</a>
+                        </div>
+                    </div>
+                </nav>
 
 
         <div class="text-white" id="espera_alumno_fondo"

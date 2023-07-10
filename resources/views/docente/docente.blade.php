@@ -59,19 +59,25 @@
                         <div class="col-sm-10 d-flex align-items-center justify-content-center" id="preguntaB">
                             <b>¡BIENVENIDO, CREA TU JUEGO Y EVALÚA!</b>
                         </div>
-                        <a href="configuracion.html">
+
                         <div class="d-flex justify-content-center mt-3">
                             <button class="btn btn-danger" id="botoncrear">
                                 <i class="ri-gamepad-line"></i>
                                 <a href="{{"configuracion"}}"> Crear Juego</a>
                             </button>
                         </div>
-                        </a>
+
                     </div>
                 </div>
             </div>
             
         </div>
+
+
+
+
+
+        
         <script src="js/menuprofesores.js"></script>
         <script src="https://unpkg.com/scrollreveal"></script>
       </body>

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Respuestas extends Model
+class Respuesta extends Model
 {
     use HasFactory;
-
+    protected $table='respuestas';
     protected $fillable = [
         'id_pregunta',
         'respuestas',
