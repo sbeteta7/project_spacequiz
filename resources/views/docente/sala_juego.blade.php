@@ -47,7 +47,8 @@
                     <h2>Código de la sala</h2>
                     <!-- Estableciendo redondeado -->
                     <div class="codigo-sala rounded-5">
-                        xxxx-xxxx
+                        {{$codigo}}
+                        
                     </div>
                 </div>
                 <!-- Definiendo los espacios donde se mostrarán los Alumnos que ingresen al juego -->
@@ -56,7 +57,17 @@
                 </div>
                 <!-- Definiendo la creación de botón iniciar juego -->
                 <div class="py-3">
-                    <button class="btn btn-warning btn-lg btn-iniciar-juego py-3 rounded-5">INICIAR JUEGO</button>
+                    <form action="{{route('create_ranking')}}" method="post">
+                        @csrf
+                    <input type="text" value="{{$id_partida}}" hidden>
+   
+                    <button class="btn btn-warning btn-lg btn-iniciar-juego py-3 rounded-5"
+                    type="submit">
+                        
+                        Terminar Juego
+                    
+                    </button>
+                </form>
                 </div>
             </div>
         </div>

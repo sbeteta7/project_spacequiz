@@ -3,9 +3,11 @@
 
 use App\Http\Controllers\docente\CrearJuegoController;
 use App\Http\Controllers\docente\ConfigurarJuegoController;
+use App\Http\Controllers\docente\RankingController;
 use App\Http\Controllers\estudiante\ResultadoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistroController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\comite\PreguntaController;
 use App\Http\Controllers\comite\RespuestaController;
@@ -48,10 +50,15 @@ Route::controller(RegistroController::class)->group(function(){
 Route::controller(ConfigurarJuegoController::class)->group(function(){
 
     Route::get('/configuracion','configurar_juego');
-    Route::post('banco_preguntas','seleccionar_preguntas')->name('banco_preguntas');    
+    Route::post('/banco_preguntas','seleccionar_preguntas')->name('banco_preguntas'); 
+    Route::post('/inciar_juego','inciar_juego')->name('inciar_juego');       
 });
 
+
+
 Route::post('/juego', [CrearJuegoController::class, 'crear_juego'])->name('crear_juego');
+Route::post('/ranking', [RankingController::class, 'create_ranking'])->name('create_ranking');
+
 Route::post('/estado_juego', [ResultadoController::class, 'estado_partida'])->name('estado_juego');
 
 Route::any('/resultado',[ResultadoController::class,'resultado_juego'])->name('resultado');

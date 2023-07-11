@@ -207,7 +207,7 @@
                 event.preventDefault();
 
                 input_tiempo.value = etiqueta_contador.innerHTML;
-                localStorage.clear;
+                localStorage.clear();
                 form_estado_game.submit();
 
             })
@@ -219,7 +219,7 @@
             if (localStorage.getItem('contador')) {
                 // Recuperar el valor del contador
                 //parseInt(localStorage.getItem('contador'))
-                var contador = 5;
+                var contador = parseInt(localStorage.getItem('contador'));
 
             } else {
 
@@ -246,7 +246,7 @@
                     // Detener el intervalo de tiempo
                     clearInterval(intervalo);
                     input_tiempo.value = convertirTiempo(duracion);
-                    localStorage.clear;
+                    localStorage.clear();
                     form_estado_game.submit();
 
 

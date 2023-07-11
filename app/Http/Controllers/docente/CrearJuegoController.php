@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class CrearJuegoController extends Controller
 {
-
+    
     
 
     public function crear_juego(Request $request){

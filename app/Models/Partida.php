@@ -18,7 +18,7 @@ class Partida extends Model
     ];
 
     public function Preguntas(){
-        return $this->belongsToMany('App\Models\Preguntas','partida_preguntas','id_partida','id_pregunta');
+        return $this->belongsToMany('App\Models\Pregunta','partida_preguntas','id_partida','id_pregunta');
     }
 
 
